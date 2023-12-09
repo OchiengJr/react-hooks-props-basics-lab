@@ -2,13 +2,26 @@ import React from 'react';
 import user from '../data/user';
 
 const Links = () => {
+    const { links } = user;
+
     return (
         <div>
-            <p>Links</p>
-            <a href={user && user.links && user.links.github}>{user && user.links && user.links.github}</a>
-            <a href={user && user.links && user.links.linkedin}>{user && user.links && user.links.linkedin}</a>
+            <h3>Links</h3>
+            
+            {links && (
+                <>
+                    <a href={links.github} target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                    <br />
+                    <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </>
+            )}
         </div>
     );
 }
 
 export default Links;
+
