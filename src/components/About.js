@@ -1,32 +1,31 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Links from "./Links";
-import user from "../data/user";
 
-function About(props) {
-  
-  const { bio } = props;
-
+function About({ bio }) {
   if (!bio) {
     return (
       <div id="about">
         <h2>About Me</h2>
-        <p>looks like the bio is missing</p>
-        <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-        <Links />
-      </div>
-    );
-  } else {
-    
-    return (
-      <div id="about">
-        <h2>About Me</h2>
-        <p>{bio}</p>
+        <p>Looks like the bio is missing</p>
         <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
         <Links />
       </div>
     );
   }
+
+  return (
+    <div id="about">
+      <h2>About Me</h2>
+      <p>{bio}</p>
+      <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
+      <Links />
+    </div>
+  );
 }
 
-export default About;
+About.propTypes = {
+  bio: PropTypes.string.isRequired,
+};
 
+export default About;
